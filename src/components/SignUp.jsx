@@ -50,15 +50,15 @@ export default function SignUp() {
         </div>
         <div className="flex flex-col gap-3">
           <div>
-            <p className="font-semibold text-gray-500">Name</p>
-            <div className="input mt-1 input-md w-full">
+            <p className="font-semibold text-base-content">Name</p>
+            <div className="input mt-1 validator input-md w-full">
               <FaRegUser color="#aaa" />
               <input required placeholder="type name" pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="16" {...register("name")} />
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-gray-500">Email</p>
+            <p className="font-semibold text-base-content">Email</p>
             <div className="input validator mt-1 input-md w-full">
               <FaRegEnvelope color="#aaa" />
               <input required placeholder="example@gmail.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type="email" {...register("email")} />
@@ -66,7 +66,7 @@ export default function SignUp() {
           </div>
 
           <div>
-            <p className="font-semibold text-gray-500">Password</p>
+            <p className="font-semibold text-base-content">Password</p>
             <div className="input validator mt-1 input-md w-full">
               <FaLock color="#aaa" />
               <input required placeholder="type password" type="password" {...register("password")} pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$" />
@@ -86,7 +86,7 @@ export default function SignUp() {
           </button>
         </div>
         <div className="divider text-gray-500 py-2">or</div>
-        <button className="btn btn-md mt-2 w-full btn-outline ">
+        <button type="button" className="btn btn-md mt-2 w-full btn-outline ">
           <svg aria-label="Google logo" width="26" height="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
               <path d="m0 0H512V512H0" fill="transparent"></path>

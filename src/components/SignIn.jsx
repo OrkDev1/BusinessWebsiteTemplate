@@ -31,14 +31,14 @@ export default function SignIn() {
         </div>
         <div className="flex flex-col gap-3">
           <div>
-            <p className="font-semibold text-gray-500">Email</p>
+            <p className="font-semibold text-base-content">Email</p>
             <div className="input input-md w-full">
               <FaRegEnvelope color="#aaa" />
               <input placeholder="example@gmail.com" type="email" {...register("email")} />
             </div>
           </div>
           <div>
-            <p className="font-semibold text-gray-500">Password</p>
+            <p className="font-semibold text-base-content">Password</p>
             <div className="input input-md w-full">
               <FaLock color="#aaa" />
               <input placeholder="password" type="password" {...register("password")} />
