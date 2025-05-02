@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import BlurPopUpByWord from "./Hero-Lib/BlurPopUpByWord";
 import BlurPopUp from "./Hero-Lib/BlurPopUp";
 import { ChevronRight } from "lucide-react";

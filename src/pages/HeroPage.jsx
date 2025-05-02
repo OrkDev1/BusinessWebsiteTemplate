@@ -7,10 +7,11 @@ import Pricing from "../Sections/Pricing";
 import Hero from "../Sections/Hero";
 import Footer from "../components/Footer";
 import Contact from "../Sections/Contact";
+import Features from "../Sections/Features";
 
 const sections = [
   { title: "Home", id: "home", element: <Hero /> },
-  { title: "Features", id: "features", element: <></> },
+  { title: "Features", id: "features", element: <Features /> },
   { title: "Pricing", id: "pricing", element: <Pricing /> },
   { title: "Contact", id: "contact", element: <Contact /> },
 ];
