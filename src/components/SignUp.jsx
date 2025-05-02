@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import { FaRegUser, FaRegEnvelope, FaLock } from "react-icons/fa";
+import { UserRound, Mail, LockKeyhole } from "lucide-react";
 
 const signUpSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -52,7 +52,7 @@ export default function SignUp() {
           <div>
             <p className="font-semibold text-base-content">Name</p>
             <div className="input mt-1 validator input-md w-full">
-              <FaRegUser color="#aaa" />
+              <UserRound color="#aaa" />
               <input required placeholder="type name" pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="16" {...register("name")} />
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function SignUp() {
           <div>
             <p className="font-semibold text-base-content">Email</p>
             <div className="input validator mt-1 input-md w-full">
-              <FaRegEnvelope color="#aaa" />
+              <Mail color="#aaa" />
               <input required placeholder="example@gmail.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" type="email" {...register("email")} />
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function SignUp() {
           <div>
             <p className="font-semibold text-base-content">Password</p>
             <div className="input validator mt-1 input-md w-full">
-              <FaLock color="#aaa" />
+              <LockKeyhole color="#aaa" />
               <input required placeholder="type password" type="password" {...register("password")} pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$" />
             </div>
             <ul className="validator-hint hidden peer-invalid:block peer-focus:block mt-1 text-gray-500 text-sm space-y-1">

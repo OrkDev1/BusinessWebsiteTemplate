@@ -1,131 +1,127 @@
-import React from "react";
-import { FaRegUser, FaRegEnvelope, FaLock, FaRegCreditCard } from "react-icons/fa";
+import React, { useState } from "react";
+import { TvMinimal, SunMedium, Moon, List, SquareArrowOutUpRight, SettingsIcon, LogOut, UserRound, LayoutDashboard, Mail, LockKeyhole, CreditCard, Info } from "lucide-react";
 
 export default function Settings() {
   const userEmail = "example1234444@gmail.com";
   const userName = "Adam Sandler";
   const subStatus = false;
-  const paymentCard = "**** 4576";
   return (
-    <div className="w-full h-full flex flex-col">
-      <input type="checkbox" value="cupcake" className="toggle theme-controller" />
-      <button className="btn" onClick={() => document.getElementById("my_modal_1").showModal()}>
-        open modal
-      </button>
+    <div>
+      <div>
+        <button onClick={() => document.getElementById("my_modal_1").showModal()} className={`relative transition z-10 p-2 flex items-center hover:opacity-100 opacity-60`}>
+          <LayoutDashboard size="28" />
+        </button>
+      </div>
+
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
-          <h2 className="font-bold text-2xl text-center">Settings</h2>
+          <h2 className="font-bold text-2xl text-center">DASHBOARD</h2>
           {/** Section 1 **/}
-          <h2 className="font-semibold text-lg text-left">Account Information</h2>
-          <div className="flex gap-1 w-full py-2">
-            <div className="card card-border w-1/3">
+          <h2 className="mt-6 font-semibold text-lg text-left">Account Information</h2>
+          <div className="flex sm:flex-row flex-col gap-1 w-full py-2">
+            <div className="card card-border w-full sm:w-1/3">
               <div className="card-body flex flex-col items-center justify-center">
-                <FaRegUser size="32" className="text-neutral" />
-                <div className="badge badge-soft h-fit w-full tooltip tooltip-bottom" data-tip={userName}>
+                <UserRound size="32" />
+                <div className="badge cursor-default text-center sm:text-left badge-soft h-fit w-full tooltip tooltip-bottom" data-tip={userName}>
                   <p className="text-nowrap overflow-hidden text-ellipsis">{userName}</p>
                 </div>
               </div>
             </div>
-            <div className="card card-border w-1/3">
+            <div className="card card-border w-full sm:w-1/3">
               <div className="card-body flex flex-col items-center justify-center">
-                <FaRegEnvelope size="32" className="text-neutral" />
-                <div className="badge badge-soft h-fit w-full tooltip tooltip-bottom" data-tip={userEmail}>
+                <Mail size="32" />
+                <div className="badge cursor-default text-center sm:text-left badge-soft h-fit w-full tooltip tooltip-bottom" data-tip={userEmail}>
                   <p className="text-nowrap overflow-hidden text-ellipsis">{userEmail}</p>
                 </div>
               </div>
             </div>
-            <div className="card card-border w-1/3">
+            <div className="card card-border w-full sm:w-1/3">
               <div className="card-body flex flex-col items-center justify-center">
-                <FaLock size="32" className="text-neutral" />
-                <div className="btn btn-secondary h-fit w-full tooltip tooltip-bottom" data-tip="Change Password">
+                <LockKeyhole size="32" />
+                <div className="btn btn-primary h-fit w-full tooltip tooltip-bottom" data-tip="Change Password">
                   <p className="text-nowrap overflow-hidden text-ellipsis">Change Password</p>
                 </div>
               </div>
             </div>
           </div>
           {/** Section 2 **/}
-          <h2 className="font-semibold text-lg text-left mt-2">Billing</h2>
+          <h2 className="font-semibold text-lg text-left mt-2">Billing & Subscription</h2>
           <div className="w-full py-2">
             <div className="card card-border">
               <div className="card-body">
-                <div className="flex items-center justify-between">
+                <div className="flex sm:flex-row flex-col items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <FaRegCreditCard size="18" />
-                    <h3 className="font-semibold text-">Name</h3>
+                    <Info size="18" />
+                    <h3 className="font-semibold text-lg">Status</h3>
                   </div>
-                  <div className="badge badge-soft badge-info">Display Name Here</div>
+                  <div className={`badge cursor-default badge-soft ${subStatus ? "badge-success" : "badge-error"}`}>{subStatus ? "ACTIVE" : "INACTIVE"}</div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-lg">Password</h3>
-                  <button className="btn btn-info">Change Password</button>
+                <div className="flex sm:flex-row flex-col items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <CreditCard size="18" />
+                    <h3 className="font-semibold text-lg">Payment Method</h3>
+                  </div>
+                  <button className="btn btn-primary text-wrap h-min w-full sm:w-fit">Change Payment</button>
+                </div>
+                <div className="flex sm:flex-row flex-col items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <List size="18" />
+                    <h3 className="font-semibold text-lg">Subscription</h3>
+                  </div>
+                  <button className="btn btn-primary text-wrap h-min w-full sm:w-fit">Manage Subscription</button>
                 </div>
               </div>
             </div>
           </div>
           {/** Section 3 **/}
-          <h2 className="font-semibold text-lg text-left mt-2">Subscription</h2>
+          <h2 className="font-semibold text-lg text-left mt-2">Preferences</h2>
           <div className="w-full py-2">
             <div className="card card-border">
               <div className="card-body">
-                <div className="flex items-center justify-between">
+                <div className="flex sm:flex-row flex-col items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <FaRegUser size="18" />
-                    <h3 className="font-semibold text-">Name</h3>
+                    <TvMinimal size="18" />
+                    <h3 className="font-semibold text-lg">Theme</h3>
                   </div>
-                  <div className="badge badge-soft badge-info">Display Name Here</div>
+                  <label className="toggle toggle-lg text-content items-center justify-center">
+                    <input type="checkbox" value="DarkCoffee" className="theme-controller" />
+                    <SunMedium size="18" />
+                    <Moon size="18" />
+                  </label>
                 </div>
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-lg">Password</h3>
-                  <button className="btn btn-info">Change Password</button>
+                <div className="flex sm:flex-row flex-col items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <LogOut size={18} />
+                    <h3 className="font-semibold text-lg">Sign Out</h3>
+                  </div>
+                  <button className="relative btn btn-primary translate-0 text-wrap h-fit w-full sm:w-fit" onClick={() => console.log("SignOut Event")}>
+                    <p className="mr-auto">Sign Out</p>
+                  </button>
                 </div>
+              </div>
+            </div>
+          </div>
+          {/** Section 4 **/}
+          <h2 className="font-semibold text-lg text-left mt-2">Service Panel</h2>
+          <div className="w-full py-2">
+            <div className="card card-border">
+              <div className="card-body">
+                <button className="relative mt-1 w-full btn btn-primary" onClick={() => console.log("Go To Dashboard Event")}>
+                  <p className="uppercase">Go To Dashboard</p>
+                  <SquareArrowOutUpRight size={20} className="absolute right-2" />
+                </button>
               </div>
             </div>
           </div>
           {/** Buttons **/}
           <div className="modal-action">
             <form method="dialog" className="gap-1 flex">
-              <button className="btn btn-secondary">Close</button>
+              <button className="btn btn-outline">Close</button>
               <button className="btn btn-primary">Save</button>
             </form>
           </div>
         </div>
       </dialog>
-
-      <h2 className="text-2xl font-bold tracking-tighter">Subscription</h2>
-      <div className="card card-border bg-base-100 w-96">
-        <div className="card-body">
-          <div className="flex flex-col">
-            <h2 className="card-title">Status:</h2>
-            <p className={`font-semibold text-lg ${subStatus ? " text-success" : " text-error"}`}>{subStatus ? "Active" : "Inactive"}</p>
-          </div>
-          <div className="flex flex-col">
-            <h2 className="card-title">Subscription Settings:</h2>
-            <button className="btn h-full btn-info">Change</button>
-          </div>
-          <div className="flex flex-col">
-            <h2 className="card-title">Cancel Subscription:</h2>
-            <button className="btn h-full btn-error">Cancel</button>
-          </div>
-        </div>
-      </div>
-
-      <h2 className="text-2xl font-bold tracking-tighter">Payment</h2>
-      <div className="card card-border bg-base-100 w-96">
-        <div className="card-body">
-          <div className="flex flex-col">
-            <h2 className="card-title">Method:</h2>
-            <p className="text-gray-500 font-semibold">Card: {paymentCard}</p>
-          </div>
-          <div className="flex flex-col">
-            <h2 className="card-title">Subscription Settings:</h2>
-            <button className="btn h-full btn-info">Change</button>
-          </div>
-          <div className="flex flex-col">
-            <h2 className="card-title">Cancel Subscription:</h2>
-            <button className="btn h-full btn-error">Cancel</button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

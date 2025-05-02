@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { z } from "zod";
-import { FaRegUser, FaRegEnvelope, FaLock } from "react-icons/fa";
+import { Mail, LockKeyhole } from "lucide-react";
 
 const signInSchema = z.object({
   email: z.string().email("Invalid email"),
@@ -33,14 +33,14 @@ export default function SignIn() {
           <div>
             <p className="font-semibold text-base-content">Email</p>
             <div className="input input-md w-full">
-              <FaRegEnvelope color="#aaa" />
+              <Mail color="#aaa" />
               <input placeholder="example@gmail.com" type="email" {...register("email")} />
             </div>
           </div>
           <div>
             <p className="font-semibold text-base-content">Password</p>
             <div className="input input-md w-full">
-              <FaLock color="#aaa" />
+              <LockKeyhole color="#aaa" />
               <input placeholder="password" type="password" {...register("password")} />
             </div>
           </div>

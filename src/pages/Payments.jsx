@@ -1,6 +1,5 @@
 import { oklch, formatHex } from "culori";
-import { FaAngleLeft, FaRegUser, FaRegEnvelope, FaLock } from "react-icons/fa";
-
+import { ChevronLeft } from "lucide-react";
 export default function Payments() {
   const name = "USER-TEST";
   const email = "USER-TEST@gmail.com";
@@ -13,7 +12,7 @@ export default function Payments() {
   return (
     <div className="w-full h-screen">
       <button onClick={() => (window.location = "/")} className="btn btn-xs py-3 absolute top-2 left-2 rounded-field">
-        <FaAngleLeft color="#aaa" height={32} width={32} />
+        <ChevronLeft color="#aaa" height={32} width={32} />
       </button>
 
       <div className="w-full h-full flex items-center justify-center">
