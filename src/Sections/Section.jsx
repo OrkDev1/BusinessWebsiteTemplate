@@ -14,7 +14,7 @@ export default function Section({ title, id, element }) {
   }, [isInView, id, setActiveLink]);
 
   return (
-    <section id={id} ref={ref} className=" min-h-screen h-max flex flex-col items-center justify-center">
+    <section id={id} ref={ref} className="min-h-screen flex flex-col items-center justify-center">
       {element}
     </section>
   );

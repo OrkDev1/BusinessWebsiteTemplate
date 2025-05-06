@@ -7,14 +7,13 @@ import { OrbitControls } from "@react-three/drei";
 import countries from "./globe.json";
 
 const RING_PROPAGATION_SPEED = 3;
-const aspect = 1.2;
+//const aspect = 1.2;
 const cameraZ = 300;
 
-export function Globe({ globeConfig, data }) {
+export function Globe({ globeConfig, data, onReady }) {
   const globeRef = useRef(null);
   const groupRef = useRef();
   const [isInitialized, setIsInitialized] = useState(false);
-
   const defaultProps = {
     pointSize: 1,
     atmosphereColor: "#ffffff",
@@ -39,7 +38,15 @@ export function Globe({ globeConfig, data }) {
       setIsInitialized(true);
     }
   }, []);
+  useEffect(() => {
+    if (onReady && isInitialized && globeRef.current) {
+      const timeout = setTimeout(() => {
+        onReady();
+      }, 200);
 
+      return () => clearTimeout(timeout);
+    }
+  }, [onReady, isInitialized]);
   useEffect(() => {
     if (!globeRef.current || !isInitialized) return;
     const globeMaterial = globeRef.current.globeMaterial();
@@ -147,7 +154,7 @@ export function WebGLRendererConfig() {
   return null;
 }
 
-export function World({ globeConfig, data }) {
+export function World({ globeConfig, data, onReady }) {
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
 
@@ -165,7 +172,7 @@ export function World({ globeConfig, data }) {
       <directionalLight color={globeConfig.directionalLeftLight} position={new Vector3(-400, 100, 400)} />
       <directionalLight color={globeConfig.directionalTopLight} position={new Vector3(-200, 500, 200)} />
       <pointLight color={globeConfig.pointLight} position={new Vector3(-200, 500, 200)} intensity={0.8} />
-      <Globe globeConfig={globeConfig} data={data} />
+      <Globe globeConfig={globeConfig} data={data} onReady={onReady} />
       <OrbitControls enablePan={false} enableZoom={false} minDistance={cameraZ} maxDistance={cameraZ} autoRotate autoRotateSpeed={1} minPolarAngle={Math.PI / 3.5} maxPolarAngle={Math.PI - Math.PI / 3} />
     </Canvas>
   );

@@ -4,7 +4,7 @@ import { Youtube, Twitter, Mail, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <div className="w-full flex flex-items-center justify-center bg-base-200">
+    <div className="w-full flex flex-items-center justify-center bg-base-200/60">
       <footer className="max-w-6xl footer sm:footer-horizontal text-base-content p-10">
         <aside>
           <div className="w-18 h-18 fill-base-content">

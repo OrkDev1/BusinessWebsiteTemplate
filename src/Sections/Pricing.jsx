@@ -2,7 +2,12 @@ import { Check, X } from "lucide-react";
 import BlurPopUpByWord from "./Hero-Lib/BlurPopUpByWord";
 import { blurPopUp } from "../Animations/animations"; // Make sure this file exists
 import { motion } from "framer-motion";
-
+import { GlowingEffect } from "../Lib/GlowingEffect";
+import { oklch, formatHex } from "culori";
+function getCSSVar(name) {
+  const oklchColor = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return "#" + formatHex(oklch(oklchColor)).slice(1);
+}
 const plans = [
   {
     name: "Free",
@@ -69,7 +74,7 @@ const plans = [
 
 export default function PricingTable() {
   return (
-    <div className="px-4 py-20 text-center">
+    <div className="px-4 text-center">
       <motion.h1
         variants={blurPopUp}
         initial="initial"
@@ -99,8 +104,9 @@ export default function PricingTable() {
             whileInView="animate"
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 * idx }}
-            className={`border-2 w-full rounded-box border-base-300 flex flex-col justify-between ${plan.highlight ? "ring-2 ring-primary/80 border-none bg-base-100" : ""}`}
+            className={`border-2 w-full rounded-box border-base-300 flex flex-col justify-between ${plan.highlight ? "shadow-sm shadow-primary border-primary/20 bg-base-100" : ""}`}
           >
+            {plan.highlight && <GlowingEffect colors={[getCSSVar("--color-primary")]} blur={0.5} borderWidth={3} spread={80} glow={true} disabled={false} proximity={100} inactiveZone={0.01} />}
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2">{plan.name}</h2>
               <p className="text-2xl font-bold">

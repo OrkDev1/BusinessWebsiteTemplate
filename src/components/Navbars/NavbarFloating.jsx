@@ -9,7 +9,7 @@ export default function Navbar() {
     <div className="relative h-full inset-0 z-50">
       <div className="h-24 absolute pointer-events-none top-0 bg-base-100/80 backdrop-blur-md mask-[linear-gradient(to_bottom,black_20%,transparent_80%)]" />
       <div className="inset-0 backdrop-blur-md opacity-0 invisible transition-opacity duration-300 pointer-events-none"></div>
-      <header className="fixed block isolate overflow-visible px-3 w-11/12 max-w-screen-xl z-50 bg-base-100/30 backdrop-blur-xl backdrop-saturate-150 top-4 rounded-box inset-x-0 mx-auto transition-all duration-75 clip-path-[inset(0_0_calc(100%-80px)_0_round_16px)]">
+      <header className="fixed block isolate overflow-visible px-3 w-11/12 max-w-6xl z-50 bg-base-100/30 backdrop-blur-xl backdrop-saturate-150 top-4 rounded-box inset-x-0 mx-auto transition-all duration-75 clip-path-[inset(0_0_calc(100%-80px)_0_round_16px)]">
         <div className="absolute inset-0 border border-base-300 rounded-box" />
         <nav className="flex flex-col h-full sm:block">
           <div className="relative">
@@ -76,12 +76,7 @@ export default function Navbar() {
           {showMenu && (
             <div>
               <div className="inset-0 fixed backdrop-blur-md opacity-0 invisible transition-opacity pointer-events-none"> </div>
-              <motion.div
-                initial={{ opacity: 0, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="sm:hidden transition-all flex gap-1 flex-col bg-base-100/30 py-2 rounded-box shadow z-50 backdrop-blur-lg backdrop-saturate-150 clip-path-[inset(0_0_calc(100%-80px)_0_round_16px)]"
-              >
+              <motion.div initial={{ opacity: 0, y: 0 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="sm:hidden transition-all flex gap-1 flex-col py-2 rounded-box shadow z-50">
                 <a className="btn btn-ghost text-sm justify-start" href="#features">
                   Features
                 </a>

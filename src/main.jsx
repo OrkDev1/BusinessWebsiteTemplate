@@ -6,7 +6,7 @@ import "./index.css";
 import AuthPage from "./pages/AuthPage";
 import Service from "./pages/Service";
 import Payments from "./pages/Payments";
-import HeroPage from "./pages/HeroPage";
+import LandingPage from "./pages/LandingPage";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="auth" element={<AuthPage />} />
         <Route path="service" element={<Service />} />
         <Route path="pay" element={<Payments />} />
-        <Route path="/" element={<HeroPage />} />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
     <Toaster richColors />
